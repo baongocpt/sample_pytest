@@ -4,6 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import *
 from core.web.base.DriverFactory import WebDriverFactory
+from util.load_conf import Settings
 import util.custom_logger as cl
 import logging
 
@@ -13,6 +14,9 @@ class BasePage:
     def __init__(self):
         self.wdf = WebDriverFactory("firefox")
         self.driver = self.wdf.get_webdriver_instance()
+        self.general_settings = Settings().general_settings
+        self.settings = Settings().settings
+        self.locators = Settings().locators
 
     def goto(self, url):
         self.driver.get(url)

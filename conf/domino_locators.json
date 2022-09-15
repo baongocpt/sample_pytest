@@ -1,0 +1,8 @@
+{
+  "login_page": {
+    "ipt_username": {"locator_type": "id", "locator": "user_login"},
+    "ipt_password": {"locator_type": "id", "locator": "user_pass"},
+    "btn_submit": {"locator_type": "id", "locator": "wp-submit"}
+  },
+  "home_page": {}
+}
