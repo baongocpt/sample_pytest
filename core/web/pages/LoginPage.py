@@ -18,6 +18,4 @@ class LoginPage(BasePage):
                        locator_type=self.login_page_locators['ipt_password']["locator_type"])
         self.element_click(locator=self.login_page_locators['btn_submit']["locator"],
                            locator_type=self.login_page_locators['btn_submit']["locator_type"])
-        print(self.get_title())
-        sleep(3)
-
+        assert self.get_title() == self.settings["admin_page"]["title"]
