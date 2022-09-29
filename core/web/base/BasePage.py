@@ -11,14 +11,19 @@ import logging
 
 class BasePage:
     log = cl.customLogger(logging.DEBUG)
-    def __init__(self):
-        self.wdf = WebDriverFactory("firefox")
-        self.driver = self.wdf.get_webdriver_instance()
+
+    def __init__(self, driver):
+        self.driver = driver
         self.general_settings = Settings().general_settings
         self.settings = Settings().settings
         self.locators = Settings().locators
 
+    # def initialize(self):
+    #     self.wdf = WebDriverFactory("firefox")
+    #     self.driver = self.wdf.get_webdriver_instance()
+
     def goto(self, url):
+        # self.initialize()
         self.driver.get(url)
 
     def close(self):
@@ -42,7 +47,8 @@ class BasePage:
         elif locator_type == "link":
             return By.LINK_TEXT
         else:
-            self.log.info("Locator type " + locator_type + " not correct/supported")
+            self.log.info(
+                "Locator type " + locator_type + " not correct/supported")
         return False
 
     def get_element(self, locator, locator_type="id"):
@@ -54,9 +60,11 @@ class BasePage:
             locator_type = locator_type.lower()
             by_type = self.get_by_type(locator_type)
             element = self.driver.find_element(by_type, locator)
-            self.log.info("Element Found with locator: " + locator + " locator_type: " + locator_type)
+            self.log.info(
+                "Element Found with locator: " + locator + " locator_type: " + locator_type)
         except:
-            self.log.info("Element not found with locator: " + locator + " locator_type: " + locator_type)
+            self.log.info(
+                "Element not found with locator: " + locator + " locator_type: " + locator_type)
         return element
 
     def get_element_list(self, locator, locator_type="id"):
@@ -86,8 +94,9 @@ class BasePage:
             self.log.info("Clicked on element with locator: " + locator +
                           " locatorType: " + locator_type)
         except:
-            self.log.info("Cannot click on the element with locator: " + locator +
-                          " locatorType: " + locator_type)
+            self.log.info(
+                "Cannot click on the element with locator: " + locator +
+                " locatorType: " + locator_type)
             print_stack()
 
     def send_keys(self, data, locator="", locator_type="id", element=None):
@@ -101,8 +110,9 @@ class BasePage:
             self.log.info("Sent data on element with locator: " + locator +
                           " locatorType: " + locator_type)
         except:
-            self.log.info("Cannot send data on the element with locator: " + locator +
-                          " locatorType: " + locator_type)
+            self.log.info(
+                "Cannot send data on the element with locator: " + locator +
+                " locatorType: " + locator_type)
             print_stack()
 
     def get_text(self, locator="", locator_type="id", element=None, info=""):
@@ -110,7 +120,7 @@ class BasePage:
         Get 'Text' on an element - Either provide element or a combination of locator and locatorType
         """
         try:
-            if locator: # This means if locator is not empty
+            if locator:  # This means if locator is not empty
                 self.log.debug("In locator condition")
                 element = self.get_element(locator, locator_type)
             self.log.debug("Before finding text")
@@ -119,7 +129,7 @@ class BasePage:
             if len(text) == 0:
                 text = element.get_attribute("innerText")
             if len(text) != 0:
-                self.log.info("Getting text on element :: " +  info)
+                self.log.info("Getting text on element :: " + info)
                 self.log.info("The text is :: '" + text + "'")
                 text = text.strip()
         except:
@@ -187,7 +197,7 @@ class BasePage:
             return False
 
     def wait_for_element(self, locator, locator_type="id",
-                               timeout=10, poll_frequency=0.5):
+                         timeout=10, poll_frequency=0.5):
         element = None
         try:
             byType = self.getByType(locator_type)

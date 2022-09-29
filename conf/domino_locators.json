@@ -4,5 +4,14 @@
     "ipt_password": {"locator_type": "id", "locator": "user_pass"},
     "btn_submit": {"locator_type": "id", "locator": "wp-submit"}
   },
-  "home_page": {}
+  "home_page": {},
+  "menu": {
+    "posts": {"locator_type": "id", "locator": "menu-posts"},
+    "brands": {"locator_type": "id", "locator": "menu-posts-brand"},
+    "products": {"locator_type": "id", "locator": "menu-posts-product"},
+    "sweepstakes": {"locator_type": "id", "locator": "menu-posts-sweepstakes"},
+    "media": {"locator_type": "id", "locator": "menu-media"},
+    "forms": {"locator_type": "id", "locator": "toplevel_page_gf_edit_forms"},
+    "pages": {"locator_type": "id", "locator": "menu-pages"}
+  }
 }

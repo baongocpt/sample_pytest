@@ -1,10 +1,9 @@
 from core.web.base.BasePage import BasePage
-from time import sleep
 
 
 class LoginPage(BasePage):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, driver):
+        super().__init__(driver)
         self.login_page_locators = self.locators["login_page"]
 
     def login_admin_page(self):
