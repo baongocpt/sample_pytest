@@ -13,5 +13,11 @@
     "media": {"locator_type": "id", "locator": "menu-media"},
     "forms": {"locator_type": "id", "locator": "toplevel_page_gf_edit_forms"},
     "pages": {"locator_type": "id", "locator": "menu-pages"}
+  },
+  "posts": {
+    "add_new_btn": {"locator_type": "xpath", "locator": "//a[text()='Add New']"},
+    "search_post_input": {"locator_type": "id", "locator": "post-search-input"},
+    "search_post_btn": {"locator_type": "id", "locator": "search-submit"},
+    "post_item": {"locator_type": "xpath", "locator": "//a[@class='row-title' and text()='%s']"}
   }
 }

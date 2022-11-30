@@ -1,0 +1,20 @@
+tests/web/test_homepage.py::TestHomePage::test_login_successfully
+--------------------------------------------------------------------
+Last Page: data:,
+  Browser: chrome (107.0.5304.121)
+   Driver: chromedriver (107.0.5304.62)
+Timestamp: 1669818912  (Unix Timestamp)
+     Date: Wednesday, 30 November 2022
+     Time: 9:35:12 PM  (+07, UTC+07:00)
+--------------------------------------------------------------------
+Traceback: File "/opt/homebrew/Cellar/python@3.10/3.10.6_2/Frameworks/Python.framework/Versions/3.10/lib/python3.10/unittest/case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "/opt/homebrew/Cellar/python@3.10/3.10.6_2/Frameworks/Python.framework/Versions/3.10/lib/python3.10/unittest/case.py", line 549, in _callTestMethod
+    method()
+  File "/Users/sb-ngocpham/Desktop/git/sample_pytest/tests/web/test_homepage.py", line 19, in test_login_successfully
+    self.loginpage.login_admin_page()
+  File "/Users/sb-ngocpham/Desktop/git/sample_pytest/core/web/pages/LoginPage.py", line 11, in login_admin_page
+    self.goto(wpadmin_url)
+  File "/Users/sb-ngocpham/Desktop/git/sample_pytest/core/web/base/BasePage.py", line 22, in goto
+    self.driver.get(url)
+Exception: 'NoneType' object has no attribute 'get'

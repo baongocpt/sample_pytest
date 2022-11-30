@@ -3,7 +3,7 @@ from core.web.base.BasePage import BasePage
 
 class MenuPage(BasePage):
     def __init__(self, driver):
-        super().__init__(driver)
+        super(MenuPage, self).__init__(driver)
         self.menu_page_locators = self.locators["menu"]
 
     def navigate_to(self, menu_name):

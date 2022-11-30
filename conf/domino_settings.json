@@ -1,0 +1,16 @@
+{
+  "webdriver": {
+    "type": "chrome"
+  },
+  "url": {
+    "base_url": "https://qc.domino.com",
+    "admin_url": "/wp/wp-admin"
+  },
+  "accounts": {
+    "admin_usr": "empire",
+    "admin_pwd": "JIdL4uAxmGl6PVD^LSA6nGC#"
+  },
+  "admin_page": {
+    "title": "Dashboard ‹ domino — WordPress"
+  }
+}

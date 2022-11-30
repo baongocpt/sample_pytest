@@ -1,29 +1,26 @@
 from traceback import print_stack
+from seleniumbase import BaseCase
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import *
-from core.web.base.DriverFactory import WebDriverFactory
 from util.load_conf import Settings
 import util.custom_logger as cl
 import logging
 
 
-class BasePage:
+class BasePage(BaseCase):
     log = cl.customLogger(logging.DEBUG)
 
     def __init__(self, driver):
+        super(BasePage, self).__init__()
+        super(BasePage, self).setUp()
         self.driver = driver
         self.general_settings = Settings().general_settings
         self.settings = Settings().settings
         self.locators = Settings().locators
 
-    # def initialize(self):
-    #     self.wdf = WebDriverFactory("firefox")
-    #     self.driver = self.wdf.get_webdriver_instance()
-
     def goto(self, url):
-        # self.initialize()
         self.driver.get(url)
 
     def close(self):

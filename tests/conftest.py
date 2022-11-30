@@ -1,19 +1,19 @@
 import pytest
-from core.web.base.BasePage import WebDriverFactory
+from core.web.base.DriverFactory import WebDriverFactory
 
 
-@pytest.yield_fixture()
+@pytest.fixture()
 def setUp():
     print("\nRunning method level setUp")
     yield
     print("\nRunning method level tearDown")
 
 
-@pytest.yield_fixture(scope="class")
-def oneTimeSetUp(request, browser):
+@pytest.fixture(scope="class")
+def oneTimeSetup(request):
     print("\nRunning one time setUp")
-    wdf = WebDriverFactory("firefox")
-    driver = wdf.get_webdriver_instance()
+    wdf = WebDriverFactory(browser)
+    driver = wdf.get_browser_instance()
 
     if request.cls is not None:
         request.cls.driver = driver
@@ -23,9 +23,9 @@ def oneTimeSetUp(request, browser):
     print("\nRunning one time tearDown")
 
 
-def pytest_addoption(parser):
-    parser.addoption("--browser")
-    parser.addoption("--osType", help="Type of operating system")
+# def pytest_addoption(parser):
+#     parser.addoption("--browser")
+#     parser.addoption("--osType", help="Type of operating system")
 
 
 @pytest.fixture(scope="session")
